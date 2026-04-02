@@ -22,10 +22,12 @@ def main():
     player = Player(x, y)
 
     while True:
-        log_state()
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
+
+        player.update(dt)
+        log_state()
         screen.fill("black")
         player.draw(screen)
         pygame.display.flip()
